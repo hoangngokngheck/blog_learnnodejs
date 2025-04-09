@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
+    "beautiful": "lint-staged",
     "start": "nodemon --inspect src/index.js",
     "watch": "sass -w src/resources/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,6 +22,14 @@
   "bugs": {
     "url": "https://github.com/hoangngokngheck/nodejs_blog/issues"
   },
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --write --tab-width 4 "
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "homepage": "https://github.com/hoangngokngheck/nodejs_blog#readme",
   "description": "",
   "dependencies": {
@@ -30,6 +39,9 @@
     "sass": "^1.85.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.3"
   }
 }
